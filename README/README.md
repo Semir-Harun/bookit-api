@@ -71,6 +71,7 @@ dotnet run
 ## ---------------------------------------------------------------------------------
 
 ## 1 Hent Admin-token og test
+```powershell
 
 $token = (Invoke-RestMethod "http://localhost:5074/auth-debug/admin").token
 
@@ -78,11 +79,13 @@ Invoke-RestMethod "http://localhost:5074/secure/ping"  -Headers @{ Authorization
 Invoke-RestMethod "http://localhost:5074/secure/admin" -Headers @{ Authorization = "Bearer $token" }   # forvent: admin ok
 
 ## 2 Hent User-token og test
+```powershell
 $token = (Invoke-RestMethod "http://localhost:5074/auth-debug/user").token
 
 Invoke-RestMethod "http://localhost:5074/secure/user" -Headers @{ Authorization = "Bearer $token" }    # forvent: user ok
 
 ## 3 Verifiser rolle-sperre (User skal ikke få Admin)
+```powershell
 try {
   Invoke-RestMethod "http://localhost:5074/secure/admin" -Headers @{ Authorization = "Bearer $token" }
 } catch {
