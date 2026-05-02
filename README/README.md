@@ -67,7 +67,7 @@ I utvikling finnes også midlertidige debug-endpoints for å hente token:
 Kjør i prosjektmappen:
 ```powershell
 dotnet run
-'
+'''
 
 ## ---------------------------------------------------------------------------------
 
