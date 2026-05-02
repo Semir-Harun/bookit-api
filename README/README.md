@@ -78,12 +78,14 @@ $token = (Invoke-RestMethod "http://localhost:5074/auth-debug/admin").token
 
 Invoke-RestMethod "http://localhost:5074/secure/ping"  -Headers @{ Authorization = "Bearer $token" }   # forvent: pong
 Invoke-RestMethod "http://localhost:5074/secure/admin" -Headers @{ Authorization = "Bearer $token" }   # forvent: admin ok
+```
 
 ## 2 Hent User-token og test
 ```powershell
 $token = (Invoke-RestMethod "http://localhost:5074/auth-debug/user").token
 
 Invoke-RestMethod "http://localhost:5074/secure/user" -Headers @{ Authorization = "Bearer $token" }    # forvent: user ok
+```
 
 ## 3 Verifiser rolle-sperre (User skal ikke få Admin)
 ```powershell
@@ -94,3 +96,4 @@ try {
 }
 
 --> Forventet statuskode: 403
+```
