@@ -16,13 +16,13 @@ public class JwtTokenService
         _jwt = jwtOptions.Value;
     }
 
-    public string CreateToken(int userId, string userName, string roleName)
+    public string CreateToken(int userId, string email, string roleName)
     {
         var claims = new List<Claim>
         {
             new(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new(JwtRegisteredClaimNames.UniqueName, userName),
-            new(ClaimTypes.Role, roleName),
+            new(JwtRegisteredClaimNames.Email, email),
+            new(ClaimTypes.Role, roleName) // Legg til rolle som claim
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));

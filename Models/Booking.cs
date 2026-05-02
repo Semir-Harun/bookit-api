@@ -8,7 +8,7 @@ public class Booking
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
     public DateTime CreatedAt { get; set; }
-    public string Status { get; set; }
-    public User User { get; set; }
-    public Room Room { get; set; }
+    public string Status { get; set; } = string.Empty;
+    public User? User { get; set; }
+    public Room? Room { get; set; }
 }

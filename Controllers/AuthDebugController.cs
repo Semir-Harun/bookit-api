@@ -17,14 +17,14 @@ public class AuthDebugController : ControllerBase
     [HttpGet("admin")]
     public IActionResult AdminToken()
     {
-        var token = _jwt.CreateToken(userId: 1, userName: "admin", roleName: "Admin");
+        var token = _jwt.CreateToken(userId: 1, email: "admin@debug.local", roleName: "Admin");
         return Ok(new { token });
     }
 
     [HttpGet("user")]
     public IActionResult UserToken()
     {
-        var token = _jwt.CreateToken(userId: 2, userName: "user", roleName: "User");
+        var token = _jwt.CreateToken(userId: 2, email: "user@debug.local", roleName: "User");
         return Ok(new { token });
     }
 }
