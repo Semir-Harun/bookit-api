@@ -5,12 +5,6 @@ using BookingSystem.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-<<<<<<< HEAD
-=======
-using Microsoft.OpenApi;
-
->>>>>>> feature/auth-jwt-core
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
@@ -99,29 +93,15 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-<<<<<<< HEAD
-=======
-// Swagger UI (i dev)
->>>>>>> feature/auth-jwt-core
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
-<<<<<<< HEAD
 app.UseHttpsRedirection();
 
 // Viktig rekkefølge
-=======
-// HTTPS redirect bare i prod
-if (!app.Environment.IsDevelopment())
-{
-    app.UseHttpsRedirection();
-}
-
-// Viktig rekkefølge:
->>>>>>> feature/auth-jwt-core
 app.UseAuthentication();
 app.UseAuthorization();
 

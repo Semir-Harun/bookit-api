@@ -22,12 +22,8 @@ public class JwtTokenService
         {
             new(JwtRegisteredClaimNames.Sub, userId.ToString()),
             new(JwtRegisteredClaimNames.Email, email),
-<<<<<<< HEAD
-            new(ClaimTypes.Role, roleName)
-=======
             new(ClaimTypes.Role, roleName) // Legg til rolle som claim
->>>>>>> feature/auth-jwt-core
-        };
+    };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
